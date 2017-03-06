@@ -4,17 +4,20 @@ ENV PASSWORD=sakalaka \
     MAILDOMAIN=domain.hu \
     GO_USER=groupoffice
 
-ENV DEBIAN_FRONTEND=noninteractive \
-    http_proxy=http://git:3128 \
-    https_proxy=http://git:3128 \
-    HTTP_PROXY=http://git:3128 \
-    HTTPS_PROXY=http://git:3128
+EXPOSE 80, 443, 25, 465, 587
 
-RUN printf -- "\
-Acquire::http::proxy \"http://srvvm-aptcache:3128/\";\n\
-Acquire::ftp::proxy \"ftp://srvvm-aptcache:3128/\";\n\
-Acquire::https::proxy \"https://srvvm-aptcache:3128/\";\n\
-" > /etc/apt/apt.conf.d/95proxies
+
+#ENV DEBIAN_FRONTEND=noninteractive \
+#    http_proxy=http://git:3128 \
+#    https_proxy=http://git:3128 \
+#    HTTP_PROXY=http://git:3128 \
+#    HTTPS_PROXY=http://git:3128
+#
+#RUN printf -- "\
+#Acquire::http::proxy \"http://srvvm-aptcache:3128/\";\n\
+#Acquire::ftp::proxy \"ftp://srvvm-aptcache:3128/\";\n\
+#Acquire::https::proxy \"https://srvvm-aptcache:3128/\";\n\
+#" > /etc/apt/apt.conf.d/95proxies
 
 RUN echo "deb [trusted=always] http://repos.groupoffice.eu/ sixtwo main" | tee /etc/apt/sources.list.d/groupoffice.list
 
