@@ -4,7 +4,7 @@ ENV PASSWORD=sakalaka \
     MAILDOMAIN=domain.hu \
     GO_USER=groupoffice
 
-EXPOSE 80, 443, 25, 465, 587
+EXPOSE 80 443 25 465 587
 
 
 #ENV DEBIAN_FRONTEND=noninteractive \
