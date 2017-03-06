@@ -51,6 +51,7 @@ RUN rm -f /usr/sbin/policy-rc.d &&\
 RUN service mysql start &&\
     rm -f /usr/sbin/policy-rc.d &&\
     apt-get install -y \
+        apache2 \
         postfix \
         postfix-mysql \
         dovecot-mysql \
@@ -58,6 +59,7 @@ RUN service mysql start &&\
         dovecot-managesieved
     
 RUN service mysql start &&\
+    service apache2 start &&\
     rm -f /usr/sbin/policy-rc.d &&\
     apt-get install -y --allow-unauthenticated \
         groupoffice-mailserver \
