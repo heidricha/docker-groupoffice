@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 
 ENV PASSWORD=sakalaka \
-	MAILDOMAIN=domain.hu \
+    MAILDOMAIN=domain.hu \
 	GO_USER=groupoffice
 
 ENV DEBIAN_FRONTEND=noninteractive \
