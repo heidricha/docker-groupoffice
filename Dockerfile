@@ -34,6 +34,7 @@ postfix postfix/main_mailer_type string 'Internet Site'\n\
 groupoffice-com groupoffice-com/mysql/method select Unix socket\n\
 groupoffice-com groupoffice-com/db/app-user string $GO_USER\n\
 groupoffice-com groupoffice-com/dbconfig-upgrade boolean true\n\
+groupoffice-com groupoffice-com/dbconfig-install boolean true\n\
 groupoffice-mailserver groupoffice-mailserver/domain string $MAILDOMAIN\n\
 groupoffice-com groupoffice-com/mysql/admin-pass password $PASSWORD \n\
 groupoffice-com groupoffice-com/mysql/app-pass password $PASSWORD \n\
