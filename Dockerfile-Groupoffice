@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 ENV PASSWORD=sakalaka \
     MAILDOMAIN=domain.hu \
-	GO_USER=groupoffice
+    GO_USER=groupoffice
 
 ENV DEBIAN_FRONTEND=noninteractive \
     http_proxy=http://git:3128 \
@@ -41,21 +41,21 @@ groupoffice-com groupoffice-com/app-password-confirm password $PASSWORD\n\
 RUN useradd $GO_USER
 
 RUN rm -f /usr/sbin/policy-rc.d &&\
-	apt-get update && \
+    apt-get update && \
     apt-get install -y \
-		mysql-server
+        mysql-server
 
 RUN service mysql start &&\
-	rm -f /usr/sbin/policy-rc.d &&\
-	apt-get install -y \
-		postfix \
-		postfix-mysql \
-		dovecot-mysql \
-		dovecot-sieve \
-		dovecot-managesieved
+    rm -f /usr/sbin/policy-rc.d &&\
+    apt-get install -y \
+        postfix \
+        postfix-mysql \
+        dovecot-mysql \
+        dovecot-sieve \
+        dovecot-managesieved
     
 RUN service mysql start &&\
-	rm -f /usr/sbin/policy-rc.d &&\
-	apt-get install -y --allow-unauthenticated \
-		groupoffice-mailserver \
-	
+    rm -f /usr/sbin/policy-rc.d &&\
+    apt-get install -y --allow-unauthenticated \
+        groupoffice-mailserver \
+    
