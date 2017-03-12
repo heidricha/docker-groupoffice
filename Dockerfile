@@ -1,11 +1,12 @@
 FROM ubuntu:xenial
 
-ENV PASSWORD=sakalaka \
-    MAILDOMAIN=domain.hu \
+ENV PASSWORD=P@ssw0rD \
+    MAILDOMAIN=domain.net \
     GO_USER=groupoffice
 
 EXPOSE 80 443 25 465 587
 
+#VOLUME /srv/docker/groupoffice/vmail:/home/vmail
 
 #ENV DEBIAN_FRONTEND=noninteractive \
 #    http_proxy=http://git:3128 \
@@ -61,6 +62,8 @@ RUN service mysql start &&\
     
 RUN service mysql start &&\
     service apache2 start &&\
+    service postfix start &&\
+    service dovecot start &&\
     rm -f /usr/sbin/policy-rc.d &&\
     apt-get install -y --allow-unauthenticated \
         groupoffice-mailserver \
