@@ -1,8 +1,9 @@
 FROM ubuntu:xenial
 
-ENV PASSWORD=P@ssw0rD \
-    MAILDOMAIN=domain.net \
-    GO_USER=groupoffice
+ENV PASSWORD=P@ssw0rD\
+    MAILDOMAIN=domain.net\
+    GO_USER=groupoffice\
+    DEBIAN_FRONTEND=noninteractive
 
 EXPOSE 80 443 25 465 587
 
@@ -60,11 +61,11 @@ RUN service mysql start &&\
         dovecot-sieve \
         dovecot-managesieved
     
-RUN service mysql start &&\
+CMD service mysql start &&\
     service apache2 start &&\
     service postfix start &&\
     service dovecot start &&\
     rm -f /usr/sbin/policy-rc.d &&\
     apt-get install -y --allow-unauthenticated \
-        groupoffice-mailserver \
-    
+        groupoffice-mailserver && \
+    while true; do sleep 120; done
